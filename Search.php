@@ -42,98 +42,97 @@
 	require("connect.php");
 	$search = strip_tags($_GET['search']);
 	if($search){
-	if(preg_match("/[A-Za-z-0-9]+/", $_GET['search'])){
-	$date = date("F d, Y");
-	mysql_query("INSERT INTO History VALUES('', '$search', '$date')");
-	 
-	$sql= mysql_query("SELECT * FROM Def WHERE Word LIKE '%" . $search . "%' OR Def LIKE '%" . $search  ."%'");
-$numrows = mysql_num_rows($sql);
-	if($numrows >= 1){
-	while($row = mysql_fetch_assoc($sql)){
-	
-
-	$id = $row['id'];
-	$word = $row['Word'];
-	$def = $row['Def'];
-	$date = $row['Date'];	
-	echo "<b>$word</b><br />";
-	echo "$def<br />";
-
-	}
-
-	}
-
-	$sql= mysql_query("SELECT * FROM Graphs WHERE name LIKE '%" . $search . "%' OR source LIKE '%" . $search  ."%'");
-$numrows = mysql_num_rows($sql);
-	if($numrows >= 1){
-	while($row = mysql_fetch_assoc($sql)){
-	
-
-	$id = $row['id'];
-	$name = $row['name'];
-	$html = $row['html'];
-	$source = $row['source'];
-	$date = $row['date'];
-	echo "<a target='_blank' href='$source'>$name</a><br />";
-	echo "$html <br />";
-
-	}
-
-	}
-
-
-	$sql= mysql_query("SELECT * FROM Links WHERE url LIKE '%" . $search . "%' OR Name LIKE '%" . $search  ."%' OR Name='$search' OR url='$search' LIMIT 12");
-	$numrows = mysql_num_rows($sql);
-	if($numrows >= 1){
-	while($row = mysql_fetch_assoc($sql)){
-	
-	$id = $row['id'];
-	$name = $row['Name'];
-	$url = $row['url'];
-	$date = $row['date'];
-	$tags = get_meta_tags("$url");
-	$description = $tags["description"];
-	$author = $tags['author'];
-	$keywords = $tags['keywords'];
-	//echo "<a target='_blank' href='$url'>$name</a> | <a href='http://nxt.comxa.com/save?url=$url&name=$name' class='btn btn-mini btn-success'>Save</a><br/>";
-
-    	$str = file_get_contents($url);
-        preg_match("/\<title\>(.*)\<\/title\>/",$str,$title);
-        $Title = $title[1];
-	if($Title){
-	echo "<a target='_blank' href='$url'>$Title</a> | <a href='http://nxt.comxa.com/spam?id=$id'>Spam</a> |
-	<a href='https://twitter.com/share' class='twitter-share-button' data-url='$url' data-text='$Title' data-related='AskNxt'>Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script>
-<br/>";
-	}
-	else 
-	echo "<a target='_blank' href='$url'>$name</a> | <a href='http://nxt.comxa.com/spam?id=$id'>Spam</a> |
-	<a href='https://twitter.com/share' class='twitter-share-button' data-url='$url' data-text='$name' data-related='AskNxt'>Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script>
-<br/>";
-    
-
-	echo "$url<br />";
-	echo "$description<br />";
-
-
-	}
-
-	}
-
-
-	}
-	else
-	echo "<center><div class='alert alert-error'>
-	Improper Input<br />
-Letters and numbers only<br />
-Do not use symbols
-</div></center>";
+			if(preg_match("/[A-Za-z-0-9]+/", $_GET['search'])){
+				$date = date("F d, Y");
+				mysql_query("INSERT INTO History VALUES('', '$search', '$date')");
+				 
+				$sql= mysql_query("SELECT * FROM Def WHERE Word LIKE '%" . $search . "%' OR Def LIKE '%" . $search  ."%'");
+			$numrows = mysql_num_rows($sql);
+				if($numrows >= 1){
+				while($row = mysql_fetch_assoc($sql)){
+				
+			
+					$id = $row['id'];
+					$word = $row['Word'];
+					$def = $row['Def'];
+					$date = $row['Date'];	
+					echo "<b>$word</b><br />";
+					echo "$def<br />";
+			
+				}
+			
+				}
+			
+				$sql= mysql_query("SELECT * FROM Graphs WHERE name LIKE '%" . $search . "%' OR source LIKE '%" . $search  ."%'");
+			$numrows = mysql_num_rows($sql);
+				if($numrows >= 1){
+				while($row = mysql_fetch_assoc($sql)){
+				
+			
+					$id = $row['id'];
+					$name = $row['name'];
+					$html = $row['html'];
+					$source = $row['source'];
+					$date = $row['date'];
+					echo "<a target='_blank' href='$source'>$name</a><br />";
+					echo "$html <br />";
+			
+				}
+			
+				}
+			
+			
+				$sql= mysql_query("SELECT * FROM Links WHERE url LIKE '%" . $search . "%' OR Name LIKE '%" . $search  ."%' OR Name='$search' OR url='$search' LIMIT 12");
+				$numrows = mysql_num_rows($sql);
+				if($numrows >= 1){
+				while($row = mysql_fetch_assoc($sql)){
+					
+					$id = $row['id'];
+					$name = $row['Name'];
+					$url = $row['url'];
+					$date = $row['date'];
+					$tags = get_meta_tags("$url");
+					$description = $tags["description"];
+					$author = $tags['author'];
+					$keywords = $tags['keywords'];
+					//echo "<a target='_blank' href='$url'>$name</a> | <a href='http://nxt.comxa.com/save?url=$url&name=$name' class='btn btn-mini btn-success'>Save</a><br/>";
+				
+				    	$str = file_get_contents($url);
+				        preg_match("/\<title\>(.*)\<\/title\>/",$str,$title);
+				        $Title = $title[1];
+					if($Title){
+					echo "<a target='_blank' href='$url'>$Title</a> | <a href='http://nxt.comxa.com/spam?id=$id'>Spam</a> |
+					<a href='https://twitter.com/share' class='twitter-share-button' data-url='$url' data-text='$Title' data-related='AskNxt'>Tweet</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script>
+				<br/>";
+					}
+					else 
+					echo "<a target='_blank' href='$url'>$name</a> | <a href='http://nxt.comxa.com/spam?id=$id'>Spam</a> |
+					<a href='https://twitter.com/share' class='twitter-share-button' data-url='$url' data-text='$name' data-related='AskNxt'>Tweet</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script>
+				<br/>";
+				    
+				
+					echo "$url<br />";
+					echo "$description<br />";
+			
+			
+				}
+			
+				}
+			
+			
+				}
+				else
+				echo "<center><div class='alert alert-error'>
+				Improper Input<br />
+				Letters and numbers only<br />
+				Do not use symbols
+				</div></center>";
 	}
 	else
 		header("Location: http://nxt.comxa.com/");
 
-	$sql = mysql_query("SELECT * FROM LINKS ");
       ?></td>
      
     </tr>
