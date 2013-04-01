@@ -33,7 +33,6 @@
   <caption></caption>
   <thead>
     <tr class="success">
-      <th><img src="/images/glyphicons_049_star.png"></img> About</th>
     </tr>
   </thead>
   <tbody>
