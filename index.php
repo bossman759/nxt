@@ -19,7 +19,7 @@
       <li class="active"><a href="http://nxt.comxa.com/"><img src="http://nxt.comxa.com/images/glyphicons_020_home.png"> Home</a></li>
       <li><a href="http://nxt.comxa.com/submit"><img src="http://nxt.comxa.com/images/glyphicons_150_edit.png"> Sumbit</a></li>
     </ul>
-    <form class="navbar-search pull-right" method='get' action='search' onLoad="Wiki();">
+    <form class="navbar-search pull-right" method='get' action='search'>
   <input type="text" name='search' class="search-query" placeholder="Search...">
 </form>
   </div>
@@ -40,14 +40,14 @@
     <tr>
       <td>
 
-  <center><h1>NXT is The Future</h1></center><br />
+	<center><h1>NXT is The Future</h1></center><br />
 
 <div class="media">
   <a class="pull-left" href="#">
   </a>
   <div class="media-body">
     <h4 class="media-heading">NXT Search</h4>
-    NXT Search is a search engine which is based off of your links. You can easily sumit your own content to the database or even your company's content. NXT Search is free and open to everyone. NXT is also open sourced, meaning developers can download the NXT Data Dumps.
+    NXT Search is a search engine which is based off of your links. You can easily sumit your own content to the database or even your company's content. NXT Search is free and open to everyone. NXT is also open sourced, meaning developers can download the NXT source code from Github.
     <div class="media">
     </div>
   </div>
@@ -82,7 +82,7 @@
 </table>
 <div class="alert alert-info">
 NXT 2013 - Mundi informationes<br />
-<a target='_blank' href='http://thenxt.tumblr.com/'>Blog</a> | <a target='_blank' href='http://twitter.com/asknxt'>@AskNXT</a>
+<a target='_blank' href='http://thenxt.tumblr.com/'>Blog</a> | <a target='_blank' href='http://twitter.com/asknxt'>@AskNXT</a> | <a href='https://github.com/bossman759/nxt' target='_blank'>Github</a>
 </div>
 </body>
 </html>
