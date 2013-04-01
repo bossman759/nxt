@@ -39,7 +39,7 @@
   <tbody>
     <tr>
       <td><?php
-  require("connect.php");
+	require("connect.php");
 	$search = strip_tags($_GET['search']);
 	if($search){
 	if(preg_match("/[A-Za-z-0-9]+/", $_GET['search'])){
@@ -103,13 +103,13 @@ $numrows = mysql_num_rows($sql);
 	if($Title){
 	echo "<a target='_blank' href='$url'>$Title</a> | <a href='http://nxt.comxa.com/spam?id=$id'>Spam</a> |
 	<a href='https://twitter.com/share' class='twitter-share-button' data-url='$url' data-text='$Title' data-related='AskNxt'>Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script><a href='http://bufferapp.com/add' class='buffer-add-button' data-text='$Title' data-url='$url' data-count='horizontal' >Buffer</a><script type='text/javascript' src='http://static.bufferapp.com/js/button.js'></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script>
 <br/>";
 	}
 	else 
-	echo "<a target='_balnk' href='$url'>$name</a> |
-	<a href='https://twitter.com/share' class='twitter-share-button' data-url='$url' data-text='$Title' data-related='AskNxt'>Tweet</a> | <a href='http://nxt.comxa.com/spam?id=$id'>Spam</a> | 
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script><a href='http://bufferapp.com/add' class='buffer-add-button' data-text='$Title' data-url='$url' data-count='horizontal' >Buffer</a><script type='text/javascript' src='http://static.bufferapp.com/js/button.js'></script>
+	echo "<a target='_blank' href='$url'>$name</a> | <a href='http://nxt.comxa.com/spam?id=$id'>Spam</a> |
+	<a href='https://twitter.com/share' class='twitter-share-button' data-url='$url' data-text='$name' data-related='AskNxt'>Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script>
 <br/>";
     
 
@@ -120,11 +120,7 @@ $numrows = mysql_num_rows($sql);
 	}
 
 	}
-	else
-	echo "<center><div class='alert alert-error'>
-No Link Results were<br />
-Found for the entered search term<br />
-Try another term</div></center>";
+
 
 	}
 	else
@@ -145,7 +141,7 @@ Do not use symbols
 </table>
 <div class="alert alert-info">
 NXT 2013 - Mundi informationes<br />
-<a target='_blank' href='http://thenxt.tumblr.com/'>Blog</a> | <a target='_blank' href='http://twitter.com/asknxt'>@AskNXT</a>
+<a target='_blank' href='http://thenxt.tumblr.com/'>Blog</a> | <a target='_blank' href='http://twitter.com/asknxt'>@AskNXT</a> | <a href='https://github.com/bossman759/nxt' target='_blank'>Github</a>
 </div>
 </body>
 </html>
