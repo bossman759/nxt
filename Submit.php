@@ -39,7 +39,7 @@
   <tbody>
     <tr>
       <td>
-  <form action='' method='post'>
+	<form action='' method='post'>
 	<input type='text' name='name' placeholder='Name...'><br />
 	<input type='text' name='url' placeholder='Url...'><br />
 	<input type='submit' name='submit' value='submit' class='btn btn-success'>
@@ -48,8 +48,8 @@
 	<?php
 	if($_POST['submit']){
 	
-	$url = htmlentities(strip_tags($_POST['url']));
-	$name = htmlentities(strip_tags($_POST['name']));
+	$url = htmlentities(stripslashes(strip_tags($_POST['url'])));
+	$name = htmlentities(stripslashes(strip_tags($_POST['name'])));
 
 	if($name){
 
@@ -91,10 +91,10 @@
 			}
 			else
 				echo "<center><div class='alert alert-error'>
-An error occurred
-Your url was not
-submitted sadly
-</div></center>";
+				An error occurred
+				Your url was not
+				submitted sadly
+				</div></center>";
 
 		}
 		else
@@ -108,17 +108,17 @@ submitted sadly
 		}
 		else
 			echo "<center><div class='alert alert-error'>You must submit a<br />
-Url for this to work<br />
-Please try adding one
-</div></center>";
+			Url for this to work<br />
+			Please try adding one
+			</div></center>";
 
 	}
 	else
 		echo "<center><div class='alert alert-error'>
-You must submit a<br />
-Name for your url<br />
-Please try adding one
-</div></center>";
+		You must submit a<br />
+		Name for your url<br />
+		Please try adding one
+		</div></center>";
 	
 	}
 	
@@ -130,7 +130,7 @@ Please try adding one
 </table>
 <div class="alert alert-info">
 NXT 2013 - Mundi informationes<br />
-<a target='_blank' href='http://thenxt.tumblr.com/'>Blog</a> | <a target='_blank' href='http://twitter.com/asknxt'>@AskNXT</a>
+<a target='_blank' href='http://thenxt.tumblr.com/'>Blog</a> | <a target='_blank' href='http://twitter.com/asknxt'>@AskNXT</a> | <a href='https://github.com/bossman759/nxt' target='_blank'>Github</a>
 </div>
 </body>
 </html>
