@@ -39,7 +39,7 @@
   <tbody>
     <tr>
       <td>
-  <?php
+	<?php
 	if(strip_tags($_GET['id'])){
 	echo "<form action='' method='post'>
 	<input type='submit' name='submit' value='Spam?' class='btn btn-success'>
@@ -47,7 +47,7 @@
 
 	if($_POST['submit']){
 	require("connect.php");
-	$id = $_GET['id'];
+	$id = strip_tags(stripslashes($_GET['id']));
 	mysql_query("DELETE FROM Links WHERE id='$id'")or die(mysql_error());
 
 	header("LOCATION: http://nxt.comxa.com/");
@@ -64,7 +64,7 @@
 </table>
 <div class="alert alert-info">
 NXT 2013 - Mundi informationes<br />
-<a target='_blank' href='http://thenxt.tumblr.com/'>Blog</a> | <a target='_blank' href='http://twitter.com/asknxt'>@AskNXT</a>
+<a target='_blank' href='http://thenxt.tumblr.com/'>Blog</a> | <a target='_blank' href='http://twitter.com/asknxt'>@AskNXT</a> | <a href='https://github.com/bossman759/nxt' target='_blank'>Github</a>
 </div>
 </body>
 </html>
