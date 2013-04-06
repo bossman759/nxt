@@ -40,7 +40,7 @@
     <tr>
       <td><?php
 	require("connect.php");
-	$search = strip_tags($_GET['search']);
+	$search = stripslashes(strip_tags($_GET['search']));
 	if($search){
 			if(preg_match("/[A-Za-z-0-9]+/", $_GET['search'])){
 				$date = date("F d, Y");
@@ -101,13 +101,13 @@
 				        preg_match("/\<title\>(.*)\<\/title\>/",$str,$title);
 				        $Title = $title[1];
 					if($Title){
-					echo "<a target='_blank' href='$url'>$Title</a> | <a href='http://nxt.comxa.com/spam?id=$id'>Spam</a> |
+					echo "<a target='_blank' href='http://nxt.comxa.com/url?id=$id'>$Title</a> | <a href='http://nxt.comxa.com/spam?id=$id'>Spam</a> |
 					<a href='https://twitter.com/share' class='twitter-share-button' data-url='$url' data-text='$Title' data-related='AskNxt'>Tweet</a>
 				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script>
 				<br/>";
 					}
 					else 
-					echo "<a target='_blank' href='$url'>$name</a> | <a href='http://nxt.comxa.com/spam?id=$id'>Spam</a> |
+					echo "<a target='_blank' href='http://nxt.comxa.com/url?id=$id'>$name</a> | <a href='http://nxt.comxa.com/spam?id=$id'>Spam</a> |
 					<a href='https://twitter.com/share' class='twitter-share-button' data-url='$url' data-text='$name' data-related='AskNxt'>Tweet</a>
 				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script>
 				<br/>";
