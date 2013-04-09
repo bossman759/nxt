@@ -27,13 +27,12 @@
 
 
 <div class="page-header">
-  <h1>NXT<small> The worlds information.</small></h1>
+  <h1>NXT<small> The world's information.</small></h1>
 </div>
 <table class="table table-striped" cellspacing="10px">
   <caption></caption>
   <thead>
     <tr class="success">
-      <th><img src="/images/glyphicons_049_star.png"></img> About</th>
     </tr>
   </thead>
   <tbody>
