@@ -27,7 +27,7 @@
 
 
 <div class="page-header">
-  <h1>NXT<small> The worlds information.</small></h1>
+  <h1>NXT<small> The world's information.</small></h1>
 </div>
 <table class="table table-bordered" cellspacing="10px">
   <caption></caption>
@@ -47,9 +47,9 @@
 
 	<?php
 	if($_POST['submit']){
-	
-	$url = htmlentities(stripslashes(strip_tags($_POST['url'])));
-	$name = htmlentities(stripslashes(strip_tags($_POST['name'])));
+	require("connect.php");
+	$url = mysql_real_escape_string(stripslashes(strip_tags($_POST['url'])));
+	$name = mysql_real_escape_string(stripslashes(strip_tags($_POST['name'])));
 
 	if($name){
 
@@ -74,13 +74,12 @@
 		}
 
 		curl_close($ch);
-		require("connect.php");
 		$sql = mysql_query("SELECT * FROM Links WHERE url='$url'");
 		$numrows = mysql_num_rows($sql);
 		if($numrows == 0){
 
 		$date = date("M d, Y");
-			mysql_query("INSERT INTO Links VALUES('', '$name', '$url', '$date')")or die(mysql_error());
+			mysql_query("INSERT INTO Links VALUES('', '$name', '$url', '$date')");
 
 			$sql = mysql_query("SELECT * FROM Links WHERE url='$url' AND Name='$name'");
 			$numrows = mysql_num_rows($sql);
