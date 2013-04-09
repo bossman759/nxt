@@ -27,7 +27,7 @@
 
 
 <div class="page-header">
-  <h1>NXT<small> The worlds information.</small></h1>
+  <h1>NXT<small> The world's information.</small></h1>
 </div>
 <table class="table table-bordered" cellspacing="10px">
   <caption></caption>
@@ -40,7 +40,7 @@
     <tr>
       <td><?php
 	require("connect.php");
-	$search = stripslashes(strip_tags($_GET['search']));
+	$search = mysql_real_escape_string(strip_tags($_GET['search']));
 	if($search){
 			if(preg_match("/[A-Za-z-0-9]+/", $_GET['search'])){
 				$date = date("F d, Y");
