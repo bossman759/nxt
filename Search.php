@@ -46,7 +46,7 @@
 			$date = date("F d, Y");
 			mysql_query("INSERT INTO History VALUES('', '$search', '$date')");
 				 
-			$sql= mysql_query("SELECT * FROM Def WHERE Word LIKE '%" . $search . "%' OR Def LIKE '%" . $search  ."%'");
+	$sql= mysql_query("SELECT * FROM Def WHERE Word LIKE '%" . $search . "%' OR Def LIKE '%" . $search  ."%'");
 			$numrows = mysql_num_rows($sql);
 			if($numrows >= 1){
 			while($row = mysql_fetch_assoc($sql)){
