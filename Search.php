@@ -9,7 +9,6 @@
 <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
   <script type="text/javascript" src="js/bootstrap.js"></script>
-<body>
 <style>
 @iconSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings.png');
 </style>
@@ -38,7 +37,7 @@
   </thead>
   <tbody>
     <tr>
-      <td><?php
+      <td><div id='search'><?php
 	require("connect.php");
 	$search = mysql_real_escape_string(strip_tags($_GET['search']));
 	if($search){
@@ -46,7 +45,7 @@
 			$date = date("F d, Y");
 			mysql_query("INSERT INTO History VALUES('', '$search', '$date')");
 				 
-	$sql= mysql_query("SELECT * FROM Def WHERE Word LIKE '%" . $search . "%' OR Def LIKE '%" . $search  ."%'");
+			$sql= mysql_query("SELECT * FROM Def WHERE Word LIKE '%" . $search . "%' OR Def LIKE '%" . $search  ."%'");
 			$numrows = mysql_num_rows($sql);
 			if($numrows >= 1){
 			while($row = mysql_fetch_assoc($sql)){
@@ -93,7 +92,7 @@
 				$name = $row['Name'];
 				$url = $row['url'];
 				$date = $row['date'];
-				$tags = get_meta_tags("$url");
+				//$tags = get_meta_tags("$url");
 				$description = $tags["description"];
 				$author = $tags['author'];
 				$keywords = $tags['keywords'];
@@ -102,14 +101,14 @@
 				preg_match("/\<title\>(.*)\<\/title\>/",$str,$title);
 				$Title = $title[1];
 				if($Title){
-				echo "<a target='_blank' href='http://nxt.comxa.com/url?id=$id'>$Title</a> | <a href='http://nxt.comxa.com/spam?id=$id'>Spam</a> | <a href='https://twitter.com/share' class='twitter-share-button' data-url='$url' data-text='$Title' data-related='AskNxt'>Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script><br/>";
+				echo "<a target='_blank' href='http://nxt.comxa.com/$id'>$Title</a> | <a href='http://nxt.comxa.com/spam?id=$id'>Spam</a><br />";
 				}
 				else 
-				echo "<a target='_blank' href='http://nxt.comxa.com/url?id=$id'>$name</a> | <a href='http://nxt.comxa.com/spam?id=$id'>Spam</a> | <a href='https://twitter.com/share' class='twitter-share-button' data-url='$url' data-text='$name' data-related='AskNxt'>Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script><br/>";
+				echo "<a target='_blank' href='http://nxt.comxa.com/$id'>$name</a> | <a href='http://nxt.comxa.com/spam?id=$id'>Spam</a><br/>";
 				    
 				
 				echo "$url<br />";
-				echo "$description<br />";
+				//echo "$description<br />";
 			
 			
 				}
@@ -117,22 +116,7 @@
 			}
 			
 			
-			$sql= mysql_query("SELECT * FROM  r_2009_07_10 WHERE title LIKE '%" . $search . "%' OR url LIKE '%" . $search  ."%' OR title='$search' OR url='$search' LIMIT 12");
-			$numrows = mysql_num_rows($sql);
-			if($numrows >= 1){
-			while($row = mysql_fetch_assoc($sql)){
-				$id = $row['id'];
-				$title = $row['title'];
-				$url = $row['url'];
-				$score = $row['score'];
-				$comments = $row['num_comments'];
-				echo "<a target='_blank' href='$url'>$title</a> | <a href='https://twitter.com/share' class='twitter-share-button' data-url='$url' data-text='$title' data-related='AskNxt'>Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script><br/>";
 
-				echo "Score: $score | $comments comments<br />";
-
-				}
-
-				}
 							
 		}
 		else
@@ -145,14 +129,14 @@
 	else
 		header("Location: http://nxt.comxa.com/");
 
-      ?></td>
+      ?></div></td>
      
     </tr>
   </tbody>
 </table>
 <div class="alert alert-info">
 NXT 2013 - Mundi informationes<br />
-<a target='_blank' href='http://thenxt.tumblr.com/'>Blog</a> | <a target='_blank' href='http://twitter.com/asknxt'>@AskNXT</a> | <a href='https://github.com/bossman759/nxt' target='_blank'>Github</a>
+<a target='_blank' href='http://thenxt.tumblr.com/'>Blog</a> | <a href='https://twitter.com/woooaahh' target='_blank'>@Woooaahh</a> | <a target='_blank' href='http://twitter.com/asknxt'>@AskNXT</a> | <a href='https://github.com/bossman759/nxt' target='_blank'>Github</a>
 </div>
 </body>
 </html>
