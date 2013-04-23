@@ -9,6 +9,13 @@
 <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
   <script type="text/javascript" src="js/bootstrap.js"></script>
+
+
+<body>
+<div id="load_tweets"> </div>
+</body>
+
+</script>
 <body>
 <style>
 @iconSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings.png');
@@ -44,7 +51,7 @@
 	<input type='text' name='url' placeholder='Url...'><br />
 	<input type='submit' name='submit' value='submit' class='btn btn-success'>
 	</form>
-
+	<div id='search'>
 	<?php
 	if($_POST['submit']){
 	require("connect.php");
@@ -73,13 +80,21 @@
 		    echo "<center><div class='alert alert-error'>The Url is not vaild!</div></center>";
 		}
 
+
 		curl_close($ch);
+
+		$uniqid = uniqid();
+
+		$id_start = rand(1,9);
+
+		$id = substr($uniqid,$id_start,5);
+
 		$sql = mysql_query("SELECT * FROM Links WHERE url='$url'");
 		$numrows = mysql_num_rows($sql);
 		if($numrows == 0){
 
 		$date = date("M d, Y");
-			mysql_query("INSERT INTO Links VALUES('', '$name', '$url', '$date')");
+			mysql_query("INSERT INTO Links VALUES('$id', '$name', '$url', '$date')");
 
 			$sql = mysql_query("SELECT * FROM Links WHERE url='$url' AND Name='$name'");
 			$numrows = mysql_num_rows($sql);
@@ -122,7 +137,7 @@
 	}
 	
 	?>
-
+	</div>
      </td>
     </tr>
   </tbody>
