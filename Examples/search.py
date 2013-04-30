@@ -12,8 +12,6 @@ if("HELP" in t):
     print "**HELP**"
     
     print "Search: Enter a search term to receive results."
-    
-    print "History: Enter HISTORY to see recent searches."
 
     print "**HELP**"
     
