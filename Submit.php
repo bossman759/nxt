@@ -39,11 +39,15 @@
   <tbody>
     <tr>
       <td>
+
 	<form action='' method='post'>
 	<input type='text' name='name' placeholder='Name...' required><br />
 	<input type='text' name='url' placeholder='Url...' required><br />
 	<input type='submit' name='submit' value='submit' class='btn btn-success'>
 	</form>
+
+	<a href='http://nxt.comxa.com/article'>Submit an Article</a><br />
+
 	<?php
 	if($_POST['submit']){
 	require("connect.php");
