@@ -8,6 +8,16 @@
 <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
   <script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript">
+var timeOut;
+function scrollToTop() {
+  if (document.body.scrollTop!=0 || document.documentElement.scrollTop!=0){
+    window.scrollBy(0,-50);
+    timeOut=setTimeout('scrollToTop()',10);
+  }
+  else clearTimeout(timeOut);
+}
+</script>
 <body>
 <style>
 @iconSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings.png');
@@ -146,7 +156,7 @@
 </table>
 <div class="alert alert-info">
 NXT 2013 - Mundi informationes<br />
-<a target='_blank' href='http://thenxt.tumblr.com/'>Blog</a> | <a target='_blank' href='http://twitter.com/asknxt'>@AskNXT</a> | <a href='https://github.com/bossman759/nxt' target='_blank'>Github</a>
+<a target='_blank' href='http://thenxt.tumblr.com/'>Blog</a> | <a target='_blank' href='http://twitter.com/asknxt'>@AskNXT</a> | <a href='http://officialnxt.github.io/nxt' target='_blank'>Github</a> | <a href="#" onclick="scrollToTop();return false">Top</a>
 </div>
 </body>
 </html>
